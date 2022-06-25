@@ -1,0 +1,59 @@
+Comandos Básicos no CMD: 
+
+Windows: 
+	1) Listar os diretórios da pasta selecionada: dir 
+ 
+	2) Navegar entre as pastas:  
+		a) cd/  => avança um diretório 
+		b) cd ..  => volta um diretório 
+ 
+	3) Limpar a tela do cmd: cls 
+ 
+	4) Criar uma pasta: mkdir nome_da_pasta 
+ 
+	5) Deletar todos os arquivos:  del nome_da_pasta (No Windows existe a diferença entre deletar arquivos e repositorios, ou seja, o comando del n deleta a pasta, apenas os arquivos contidos nela) 
+ 
+	6) Deletar a pasta e todos os seus arquivos: rmdir nome_da_pasta 
+ 
+	7) Alterar a unidade: cd/d D:\ (ou cd/d C:\) 
+
+
+Linux/Mac:   
+	1) Listar os diretórios da pasta selecionada: ls 
+
+ 	2) Navegar entre as pastas:  
+		a) cd/  => avança um diretório 
+		b) cd ..  => volta um diretório 
+ 
+	3) Limpar a tela do cmd:  clear 
+ 
+	4) Criar uma pasta: mkdir nome_da_pasta 
+ 
+	5) Deletar uma pasta: rm nome_da_pasta 
+	
+	6) Mostrar caminho do diretorio atual: pwd
+
+	7) Mover um arquivo para uma pasta: mv
+
+
+Comandos Básicos no GIT: 
+	1) Inicializar um repositório git numa pasta: git init
+	2) Configuração inical de user: git config --global user.email "seu_melhor_email" (Caso seja a primeira vez utilizando o git)
+	3) Monitorar o status do arquivo: git status 
+	4) O comando git add adiciona uma alteração no diretório ativo à área de staging. Ele diz ao Git que você quer incluir atualizações a um arquivo específico no próximo commit: git add
+
+
+Comandos no GIT BASH: 
+	openssl sha1 nome_do_arquivo (O comando sha1 é utilizado para para identificar revisões, assim como detectar corrupção ou adulteração de dados. OpenSSL é um kit de ferramentas de linha de comando de código aberto muito útil para trabalhar com certificados, solicitações de assinatura de certificado (CSRs) e chaves criptográficas.)
+	
+	chave ssh: 
+		- Para gerar uma chave ssh -> ssh-keygen -t ed25519 -C seu_email_github
+
+		- Navegar ate a pasta onde a chave foi criada e digitar cd /c/Users/Filipe/.ssh/ (Nesse caso a chave foi criada na pasta sugerida c/Users/Filipe/.ssh)
+		
+		- cat id_ed25519.pub -> código para ter acesso a chave publica gerada (Chave para colocar no github em settings/SSH and GPG Keys)
+		
+		- Inicializando o ssh-agent: eval $(ssh-agent -s)
+
+		- ssh-add id_ed25519
+
