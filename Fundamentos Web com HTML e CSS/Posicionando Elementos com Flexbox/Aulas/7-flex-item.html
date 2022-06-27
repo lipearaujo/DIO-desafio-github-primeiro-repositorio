@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propriedades Flex Item</title>
+    <!--
+        flex-grow:
+            Define a proporcionalidade de crescimentos dos itens, respeitando o tamanho de seus conteúdos internos. O padrão é flex-grow: 0
+            OBS: não irá funcionar caso tenhamos adicionado justify-content ao nosso flex container
+    
+        flex-shrink:
+            É a propriedade que estabelecer a capacidade de redução ou compressão do tamanho de um item.
+    
+        flex-basis:
+            É a propriedade que estabelece o tamanho inicial do item antes da distribuição de espaço restante dentro dele,
+            usando como base o conteúdo interno disposto.
+            Valores posssiveis:
+                auto: caso o item não tenha tamanho, este será proporcional ao conteudo do item.
+                px, %, em... : são valores exatos previamente definidos.
+                0: terá relação com a definição do flex-grow
+
+        flex:
+            Esta propriedade é um atalho ou abreviação de escrita para as propriedades: grow, shrink e basis.
+    
+    -->
+
+    <style>
+        .container{
+            display: flex;
+            max-width: 300px;
+            border: 2px solid #000;
+        }
+
+        .item{
+            background-color: orangered;
+            margin: 5px;
+            padding: 10px;
+            text-align: center;
+            color: #fff;
+        }   
+        
+        .flex-grow{
+            flex-grow: 1;
+            /*flex-grow: 2;
+            flex-grow: 3;*/
+        }
+
+        .flex-basis{
+            flex-basis: auto;
+            /*flex-basis: 0;
+            flex-basis: 2%;*/
+        }
+
+        .flex-shrink{
+            /*flex-shrink: initial;*/
+            flex-shrink: 1;
+        }
+
+        .flex{
+            flex: 1; /*grow = 1, shrink = 1, basis = 0 */
+        }
+
+    </style>
+</head>
+<body>
+    <h2>flex-grow</h2>
+    <div class="container">
+        <div class="item flex-grow">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+    </div>
+
+    <h2>flex-basis</h2>
+    <div class="container">
+        <div class="item flex-basis flex-grow">1</div>
+        <div class="item">222</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">555</div>
+    </div>
+
+    <h2>flex-shrink</h2>
+    <div class="container">
+        <div class="item flex-shrink">1</div>
+        <div class="item">222</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">555</div>
+    </div>
+
+    <h2>flex</h2>
+    <div class="container">
+        <div class="item flex">1</div>
+        <div class="item flex">222</div>
+        <div class="item flex">3</div>
+        <div class="item flex">4</div>
+        <div class="item flex">555</div>
+    </div>
+</body>
+</html>

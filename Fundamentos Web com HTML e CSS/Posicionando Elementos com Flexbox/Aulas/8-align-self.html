@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Align Self</title>
+    <!--
+        align-self:
+            É a propriedade que estabelece o alinhamento de modo individual sobre um determinado item.
+            Valores possiveis:
+                auto: valor padrão, irá respeitar a definição de align-items do container
+                flex-start: ao início do container
+                flex-end: ao final do container
+                center: relativo ao centro de acordo com o eixo
+                stretch: ocupa todo os espaço relativo
+                baseline: utiliza a linha base da tipografia
+    -->
+
+    <style>
+        .container{
+            max-width: 350px;
+            border: 1px solid black;
+            display: flex;
+        }
+
+        .item{
+            background-color: orangered;
+            color: #fff;
+            font-size: 24px;
+            text-align: center;
+            margin: 5px;
+        }
+
+        .align-self{
+            align-self: auto; /* valor padrão, irá respeitar a definição de align-items do container */
+            /*align-self: flex-start;  ao início do container */
+            /*align-self: flex-end;  ao final do container */
+            /*align-self: center;  relativo ao centro de acordo com o eixo */
+            /*align-self: stretch;  ocupa todo os espaço relativo */
+            /*align-self: baseline;  utiliza a linha base da tipografia */
+        }
+    </style>
+</head>
+<body>
+    <h2>align-self</h2>
+    <div class="container">
+        <div class="item align-self">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+    </div>
+</body>
+</html>
