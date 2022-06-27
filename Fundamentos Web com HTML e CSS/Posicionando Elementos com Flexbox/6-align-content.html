@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Align Content</title>
+    <!--
+        alignt-content:
+            Precisamos que o container utilize quebra de linhas e a altura do container seja maior que a soma das linhas dos itens
+    -->
+
+    <style>
+        h2{
+            text-align: center;
+        }
+
+        .flex-container{
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 300px;
+            height: 400px;
+            border: 1px solid #000;
+            margin: 0 auto;
+        }
+
+        .item{
+            background-color: green;
+            margin: 5px;
+            color: #fff;
+            text-align: center;
+            font-size: 24px;
+            flex: 1;
+        }
+
+        .center{
+            align-content: center; /*alinhamento dos itens ao centro*/
+        }
+
+        .stretch{
+            align-content: stretch; /*padrão, e os flex itens crescem igualmente*/
+        }
+
+        .flex-start{
+            align-content: flex-start; /*alinhamento dos itens no início*/
+        }
+
+        .flex-end{
+            align-content: flex-end; /*alinhamento dos itens no final*/
+        }
+
+        .space-between{
+            align-content: space-between; /*cria um espaçamento igual entre os elementos*/
+        }
+
+        .space-around{
+            align-content: space-around; /*os espaçamentos do meio são duas vezes maiores que o inicial e final*/
+        }
+
+        .column{
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <h1>Row</h1>
+    <h2>align-items: center</h2>
+    <section class="flex-container center">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2 Item 2 Item 2</div>
+        <div class="item">Item 3 item 3</div>
+        <div class="item">Item 4</div>
+        <div class="item">Item 5 Item 5 Item 5</div>
+        <div class="item">Item 6 item 6</div>
+    </section>
+
+    <h2>align-items: stretch</h2>
+    <section class="flex-container stretch">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2 Item 2 Item 2</div>
+        <div class="item">Item 3 item 3</div>
+        <div class="item">Item 4</div>
+        <div class="item">Item 5 Item 5 Item 5</div>
+        <div class="item">Item 6 item 6</div>
+    </section>
+
+    <h2>align-items: flex-start</h2>
+    <section class="flex-container flex-start">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3  item 3</div>
+        <div class="item">Item 4</div>
+        <div class="item">Item 5</div>
+        <div class="item">Item 6  item 6</div>
+    </section>
+
+    <h2>align-items: flex-end</h2>
+    <section class="flex-container flex-end">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2 Item 2 Item 2  </div>
+        <div class="item">Item 3 item 3 item 3 item 3</div>
+        <div class="item">Item 4</div>
+        <div class="item">Item 5 Item 5 Item 5</div>
+        <div class="item">Item 6 item 6 item 6 item 6</div>
+    </section>
+
+    <h2>align-items: space-between</h2>
+    <section class="flex-container space-between">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2 Item 2 Item 2  </div>
+        <div class="item">Item 3</div>
+        <div class="item">Item 4</div>
+        <div class="item">Item 5 Item 5 Item 5  </div>
+        <div class="item">Item 6</div>
+    </section>
+
+    <h2>align-items: space-around</h2>
+    <section class="flex-container space-around">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2 Item 2 Item 2</div>
+        <div class="item">Item 3</div>
+        <div class="item">Item 4</div>
+        <div class="item">Item 5 Item 5 Item 5</div>
+        <div class="item">Item 6</div>
+    </section>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <h1>Column</h1>
+    <h2>align-items: center</h2>
+    <section class="flex-container center column">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2 Item 2 Item 2</div>
+        <div class="item">Item 3 item 3</div>
+        <div class="item">Item 4</div>
+        <div class="item">Item 5 Item 5 Item 5</div>
+        <div class="item">Item 6 item 6</div>
+    </section>
+
+    <h2>align-items: stretch</h2>
+    <section class="flex-container stretch column">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2 Item 2 Item 2  </div>
+        <div class="item">Item 3 item 3</div>
+        <div class="item">Item 4</div>
+        <div class="item">Item 5 Item 5 Item 5  </div>
+        <div class="item">Item 6 item 6</div>
+    </section>
+
+    <h2>align-items: flex-start</h2>
+    <section class="flex-container flex-start column">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
+        <div class="item">Item 4</div>
+        <div class="item">Item 5</div>
+        <div class="item">Item 6</div>
+    </section>
+
+    <h2>align-items: flex-end</h2>
+    <section class="flex-container flex-end column">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
+        <div class="item">Item 4</div>
+        <div class="item">Item 5</div>
+        <div class="item">Item 6</div>
+    </section>
+
+    <h2>align-items: space-between</h2>
+    <section class="flex-container space-between column">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2 Item 2 Item 2  </div>
+        <div class="item">Item 3</div>
+        <div class="item">Item 4</div>
+        <div class="item">Item 5 Item 5 Item 5  </div>
+        <div class="item">Item 6</div>
+    </section>
+
+    <h2>align-items: space-around</h2>
+    <section class="flex-container space-around column">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2 Item 2 Item 2  </div>
+        <div class="item">Item 3</div>
+        <div class="item">Item 4</div>
+        <div class="item">Item 5 Item 5 Item 5  </div>
+        <div class="item">Item 6</div>
+    </section>
+</body>
+</html>

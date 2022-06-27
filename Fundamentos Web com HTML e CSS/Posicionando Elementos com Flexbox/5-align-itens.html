@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Align Itens</title>
+    <!--
+        alignt-itens:
+            Trata do alinhamento dos flex itens de acordo com o eixo do
+            container.
+            O alinhamento é diferente para quando os itens estão em colunas
+            ou linhas.
+            Permite o alinhamento central no eixo vertical.
+    -->
+
+    <style>
+        .flex-container{
+            display: flex;
+            max-width: 350px;
+            border: 1px solid #000;
+        }
+
+        .item{
+            background-color: green;
+            margin: 5px;
+            color: #fff;
+            text-align: center;
+            font-size: 24px;
+            flex: 1;
+        }
+
+        .center{
+            align-items: center; /*alinhamento dos itens ao centro*/
+        }
+
+        .stretch{
+            align-items: stretch; /*padrão, e os flex itens cresçam igualmente*/
+        }
+
+        .flex-start{
+            align-items: flex-start; /*alinhamento dos itens no início*/
+        }
+
+        .flex-end{
+            align-items: flex-end; /*alinhamento dos itens no final*/
+        }
+
+        .baseline{
+            align-items: baseline; /*alinhamento de acordo com a linha base da tipografia dos itens*/
+        }
+
+        .column{
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <h1>Row</h1>
+    <h2>align-items: center</h2>
+    <section class="flex-container center">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2 Item 2 Item 2  </div>
+        <div class="item">Item 3 item 3</div>
+    </section>
+
+    <h2>align-items: stretch</h2>
+    <section class="flex-container stretch">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2 Item 2 Item 2  </div>
+        <div class="item">Item 3 item 3</div>
+    </section>
+
+    <h2>align-items: flex-start</h2>
+    <section class="flex-container flex-start">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3  item 3</div>
+    </section>
+
+    <h2>align-items: flex-end</h2>
+    <section class="flex-container flex-end">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2 Item 2 Item 2  </div>
+        <div class="item">Item 3 item 3 item 3 item 3</div>
+    </section>
+
+    <h2>align-items: baseline</h2>
+    <section class="flex-container baseline">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2 Item 2 Item 2  </div>
+        <div class="item">Item 3</div>
+    </section>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <h1>Column</h1>
+    <h2>align-items: center</h2>
+    <section class="flex-container center column">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2 Item 2 Item 2  </div>
+        <div class="item">Item 3 item 3</div>
+    </section>
+
+    <h2>align-items: stretch</h2>
+    <section class="flex-container stretch column">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2 Item 2 Item 2  </div>
+        <div class="item">Item 3 item 3</div>
+    </section>
+
+    <h2>align-items: flex-start</h2>
+    <section class="flex-container flex-start column">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3  item 3</div>
+    </section>
+
+    <h2>align-items: flex-end</h2>
+    <section class="flex-container flex-end column">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2 Item 2 Item 2  </div>
+        <div class="item">Item 3 item 3 item 3 item 3</div>
+    </section>
+
+    <h2>align-items: baseline</h2>
+    <section class="flex-container baseline column">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2 Item 2 Item 2  </div>
+        <div class="item">Item 3</div>
+    </section>
+</body>
+</html>

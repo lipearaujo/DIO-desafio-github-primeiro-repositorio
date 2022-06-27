@@ -1,1 +1,25 @@
-sdkjfskdfjklsdfjlksdfjslkdfjsklfj
+Flexbox
+	Flex Container:
+		É a tag que envolve os itens, será nela que iremos aplicar a
+		propriedade “display: flex”. Transforma todos os seus itens filhos
+		em flex itens.
+		
+		Propriedades:
+			- display: inicializador do container
+			- flex-direction: fazer o direcionamento dos itens em linha ou coluna
+			- flex-wrap: aplicado para a quebra de linha
+			- flex-flow: uma abreviação para o direction e o wrap
+			- justify-content: alinha os itens de acordo com a sua direção
+			- align-itens: alinha os itens de acordo com seu eixo
+			- align-content: alinha as linhas do container
+	
+	Flex-item:
+		São os elementos filhos diretos do flex container. E também pode se tornar flex container.
+		Os flex-item também possuem propriedades:
+			- flex-grow: define o fator de crescimento
+			- flex-basis: define o tamanho inicial do item antes da distribuição do espaço restante dentro do container
+			- flex-shrink: define a capacidade de redução
+			- flex: abreviação para grow, basis e shrink
+			- order: ordem de distribuição dos itens
+			- align-self: define o alinhamento de um item espeçífico do container
+ 
