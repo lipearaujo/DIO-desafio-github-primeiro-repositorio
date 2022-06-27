@@ -1,0 +1,49 @@
+REDES
+	Backbone:
+	 	- O backbone pode ser visto como um intermediário na transmissão de mensagens e dados entre redes locais. 
+		Servidores distantes que precisam trocar dados os enviam, primeiramente, ao backbone encarregado no local.
+		Ao ligar operadoras a servidores externos, estas estruturas transmitem dados com velocidades altíssimas. 
+		Desta maneira, é possível navegar pela web, trocando informações em tempo real, independentemente da região onde o servidor receptor se localiza.
+		Por lidar com transmissão de dados em grandes distâncias, os backbones se conectam a diversas outras estruturas de dados.
+		EX: 
+			Você deseja contatar um amigo que mora no Japão, para desejar um feliz aniversário.
+			Ao enviar a mensagem, diferente do que se imagina, ela não irá diretamente para seu amigo, mas para a central de sua operadora de internet.
+			Em seguida, sua operadora a envia para um servidor comum com o Japão, um backbone, que possui acesso à operadora de internet do seu amigo.
+			O servidor envia a mensagem para a operadora, que a encaminha para o celular do aniversariante.
+
+
+PROTOCOLOS
+	Camada de Transporte:
+		- A Internet se baseia, no geral, em requisições e respostas. 
+		Se pensarmos na Web, temos um exemplo bastante concreto - usamos um navegador (como o Google Chrome ou o Mozilla Firefox) para fazer uma requisição para um servidor de determinado site. 
+		Se tudo der certo, esse servidor me devolve uma resposta com a página web que eu procurava.
+		A camada de transporte é, como o próprio nome indica, a responsável pela transferência de dados entre diferentes máquinas (seja um servidor, ou mesmo um computador pessoal).
+		A respeito dessa camada, temos dois protocolos principais: o TCP e o UDP
+	
+	Protocolo TCP:	
+	 	- O protocolo TCP é, talvez, o mais utilizado na camada de transporte para aplicações na Web. Diferente do UDP, o TCP é voltado à conexão e tem como garantia a integridade e ordem de todos os dados.
+		Para manter a confiabilidade dos dados, o TCP utiliza um aperto de mãos de três vias, o three way handshake, também chamado de SYN, SYN-ACK, ACK.
+		O nome SYN,SYN-ACK,ACK é uma resumida descrição de como esse handshake funciona. A conexão entre dois hosts começa com o primeiro enviando ao segundo um pacote de sincronização (SYNchronize).
+		O segundo host recebe esse pacote e responde com a confirmação do sincronização (SYNchronize-ACKnowledgment). 
+		O primeiro host, por fim, manda uma confirmação (ACKnowledge) para o segundo, assim estabelecendo a conexão.
+		Com o TCP, de fato temos uma conexão entre um ponto e outro, comumente chamados de servidor e cliente. 
+		É interessante notar que o TCP permite o envio simultâneo de dados de ambos os pontos ao outro, durante todo o fluxo de comunicação.
+		Desse modo, o TCP é ideal para casos em que a confiabilidade dos dados é essencial, como quando se trata de mensagens de texto!
+
+	Protocolo UDP:
+		- O protocolo UDP (sigla para User Datagram Protocol) tem, como característica essencial, a falta de confiabilidade.
+		Isso significa que, através da utilização desse protocolo, pode-se enviar datagramas de uma máquina à outra, mas sem garantia de que os dados enviados chegarão intactos e na ordem correta.
+		O UDP é um protocolo que não é voltado à conexão. Isso significa que o "aperto de mão", ou, tecnicamente, handshake, não é necessário para que se estabeleça uma comunicação.
+		Dessa forma, com o UDP é possível enviar, pela mesma saída, dados para diversas máquinas diferentes sem problema algum.  
+		EX: Podemos fazer um paralelo com aqueles anúncios em alto-falante. O anúncio consegue sair em busca do destino, mas não temos certeza se o destinatário da mensagem conseguiu ouvi-la.
+
+		No geral, o protocolo UDP permite uma comunicação bastante rápida, o que é muito vantajoso quando se trata de serviços cuja velocidade é fundamental e a perda mínima de dados não muito desvantajosa.
+		EX: Jogos online
+
+PORTAS:
+	20: FTP - apenas para envio de arquivos
+	22: SSH - comunicação segura entre dois computadores
+	25: SMTP - email
+	53: DNS
+	80: HTTP - requisição simples na internet
+	443: HTTPS - requisição segura na internet
