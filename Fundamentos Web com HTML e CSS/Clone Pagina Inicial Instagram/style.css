@@ -1,0 +1,220 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #ebebeb;
+    height: 100vh;
+}
+
+section.main{
+    height: 650px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 80px;
+}
+
+.img-celular{
+    width: 350px;  
+}
+
+.img-celular img{
+    width: 100%;
+}
+
+.form-cadastro{
+    width: 450px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+form{
+    width: 380px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 0 5%;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo{
+    width: 200px;
+    margin: auto;
+}
+
+.logo img{
+    width: 100%;
+    padding-top: 50px;
+}
+
+.inputs{
+    width: 300px;
+    margin: 0 auto;
+}
+
+input{
+    width: 100%;
+    height: 45px;
+    margin-top: 10px;
+    padding-left: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+    background-color: #f0eeee;
+}
+
+.btn{
+    width: 100%;
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: #96cee0;
+    color: #fff;
+    border: 0;
+    border-radius: 5px;
+    height: 35px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.facebook{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lines{
+    display: flex;   
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+.outline{
+    width: 145px;
+    height: 1px;
+    background-color: #ccc;   
+}
+
+.left{
+    margin-right: 15px;
+}
+.right{
+    margin-left: 15px;
+}
+
+.or span{
+    font-weight: bold;
+    color: rgb(138, 135, 135);
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.esqueceu-senha{
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
+
+.esqueceu-senha a{
+    text-decoration: none;
+    color: #000;
+}
+
+.facebook a{
+    text-decoration: none;
+    color: rgb(9, 9, 146);
+    font-weight: bold;
+}
+
+.cadastro{
+    width: 380px;
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+}
+
+.cadastro a{
+    text-decoration: none;
+    color: #4996bf;
+    font-weight: bold;
+}
+
+.store{
+    margin-top: 25px;
+}
+
+.store p{
+    text-align: center;
+    margin-bottom: 25px;
+    
+}
+
+.app-store{
+    width: 310px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.apple-logo{
+    width: 150px;
+}
+
+.gplay-logo{
+    width: 150px;
+}
+
+.app-store img{
+    width: 100%;
+}
+
+footer{
+    width: 100%;
+    position: fixed;
+    bottom:0;
+    left:0;  
+}
+
+.footer{
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer p{
+    font-size: 14px;
+    padding: 10px;
+    color: rgb(138, 138, 138);
+}
+
+@media(max-width: 512px){
+    section.main{
+        justify-content: center;
+        margin-top: 0;
+    }
+    
+    .img-celular{
+        width: 0;  
+    }
+
+    .form-cadastro{
+        margin-top: 0;
+        
+    }
+}
+
+@media(max-height: 680px){
+    footer{
+        position: unset;
+    }
+}
