@@ -1,2 +1,2 @@
-# Projeto e aulas DIO 
+# DIO 
  Repositório criado para os desafio de Projeto e aulas da DIO
