@@ -1,0 +1,219 @@
+										---> Setup do ambiente de desenvolvimento com TypeScript
+
+- Projeto Node:
+	instalar o node: https://nodejs.org/en/download/
+	abrir a pasta do projeto com o terminal, inserir npm init e confirmar todas as configurações
+
+-TypeScript:
+	npm install -g typescript
+
+
+										---> O que é Typescript
+
+- É um superset do typescript que trás tipagem estática para a linguagem, além de outras features, com o propósito de melhorar a qualidade do código escrito e a sua usabilidade. 
+Como é um superset o código compilado e usado em produção ainda é javascript, porém é um JS mais resiliente e turbinado graças ao uso de TS durante o desenvolvimento.
+
+
+										---> Variáveis
+- O TypeScript requer que as variáveis possuam um tipo na sua declaração, seja de forma explícita ou por inferência.
+//Variável do tipo string declarada por inferência de tipo
+let usuario = "Phil";
+
+//Variável do tipo string declarada explicitamente
+let usuario: string = "Phil";
+
+										---> Interfaces
+
+- Interfaces, nas palavras mais simples, descrevem a estrutura do objeto, o que significa que descreve como o objeto deve se parecer. 
+No TypeScript, uma interface contém apenas a definição de métodos e propriedades, não sua implementação. 
+É a funcionalidade da classe que realiza a conexão entre a interface fornecendo a conexão com todos os parâmetros da interface.
+Ex: 
+// Create an empty interface:
+interface EmptyObject {}
+
+// Create interface Person:
+interface Person {
+  name: string;
+  age: number;
+  hairColor: string;
+  weight: number;
+  height: number;
+}
+
+// Create interface Car:
+interface Car {
+  model: string;
+  manufacturer: string;
+  numberOfWheels: number;
+  type: string;
+}
+
+// Create interface User:
+interface User {
+  name: string;
+  pass: string;
+  email: string;
+}
+
+
+- A interface declarada também pode ter propriedades opcionais. Para declarar uma propriedade opcional, o ponto de interrogação (?) no final do nome da propriedade é usado durante a declaração.
+Ex: 	
+// Create interface Person:
+interface Person {
+  name: string;
+  weight? : number;
+  age: number;
+  hairColor? : string;
+  height: number;
+}
+
+	
+- Uma vez que o Person interface foi definida, agora pode ser usada como um tipo, também pode ser anotado o parâmetro da função com o nome da interface:
+Ex:
+interface PersonData {
+  name: string;
+  weight? : number;
+  age: number;
+  hairColor? : string; 
+  height: number;
+}
+
+function getPersonDetail(person: PersonData) {
+    return `${person.name} ${person.age} ${person.height}`;
+}
+
+let johnDoe = {
+    name: 'John Doe',
+    age: 25,
+    height: 170,
+};
+
+console.log(getPersonDetail(johnDoe));
+
+
+- O TypeScript também permite que você crie os chamados “interfaces genéricas“. 
+Essas interfaces permitem especificar o tipo de propriedade com base em um ou mais parâmetros que você disponibiliza para a interface ao usá-la. 
+Os genéricos do TypeScript são usados ​​quando você precisa criar componentes genéricos que funcionam com vários tipos de dados.
+Por exemplo, não queremos limitar uma função para aceitar apenas números como parâmetros de entrada. 
+Ele precisa ser estendido com base em casos de uso para aceitar tipos distintos. A especificação das Interfaces genéricas é feita usando colchetes angulares (<>).
+Ex:
+let cars: CarSpecification<CarModels> = Stack
+let carModels = [
+    {
+        company: 'Tata',
+        modelid: 1,
+        length: 112,
+    },
+]
+let newCar = new cars(carModels)
+console.log(newCar)        --- >   // prints the value of `carModels`
+
+Using Generics in Asynchronous tasks: 
+// Create interface for PersonObject:
+interface PersonObject {
+  name: string;
+  email: string;
+}
+
+// Create a generic interface:
+interface ApiData<T> {
+  payload: T[];
+  code: number;	
+  date: Date;
+}
+
+// Create function to fetch API
+async function fetchAPI() {
+  // Use ApiData "interface" and pass the "UserData" interface as argument (for T argument):
+  const data: ApiData<UserData> = await fetch('/URL_endpoints')
+
+  // The "ApiData<UserData>" converts to:
+  // interface ApiDatae<T> {
+  //   code: number;
+  //   date: Date;
+  //   payload: UserData[];
+  //  }
+}
+
+
+- O reaonly é usado antes do nome da propriedade para instruir o TypeScript que a próxima propriedade é uma propriedade somente leitura. 
+Só pode definir o valor para a propriedade readonly durante a inicialização se usar a interface para anotar um objeto. 
+O compilador TypeScript gerará um erro se você tentar alterar o valor da propriedade posteriormente.
+Ex:
+interface CarProperties {
+    readonly length: number;
+    readonly width: number;
+    readonly wheelbase: number;
+    readonly seatingCapacity: number;
+}
+
+
+
+										---> package.json
+
+- Nesse arquivo foram colocados alguns scripts com o propósito de facilitar a vida de quem usar esse repositório
+	start
+		Inicia o lite-server, que vai escutar modificações no index.html e em seus arquivos importados. É útil caso queira fazer testes no browser. A porta disposta normalmente é a localhost:3000
+
+	watch
+		Roda o tsc --watch com o propósito de compilar constantemente qualquer coisa que for editada nos arquivos TS para sua contraparte em JS. Esse comando evita que tsc tenha que ser digitado constantemente para fazer a compilação.
+
+
+
+										---> tsconfig.json
+
+- Algumas configurações e funcionalidades legais são:
+	- Opções básicas:
+		target
+			Define para qual versão do ECMAScript o typescript vai ser convertido
+
+		lib
+			Define quais bibliotecas vão vir por default com o TS. Isso é bacana caso o TS esteja sendo usado no backend e a iteração com o DOM não é necessária. Como teste, tentem remover as bibliotecas do DOM e olhem seu código enchendo de erros porque não sabe o que é um document
+		
+		sourceMap
+			Cria arquivos .map.js que geram uma cópia do seu arquivo TS no source do browser (aquele do inspect). Podem ser debugados via breakpoint direto no browser e são uma excelente ajuda, já que o código compilado de JS é menos legível que o TS.
+		
+		outDir
+			Pasta para onde seus arquivos JS serão enviados
+		
+		rootDir
+			Pasta de onde seus arquivos TS serão coletados. Pode ser necessário inserir a opção include fora do compilerOptions com a pasta src inclusa
+
+	
+	- Opções de checagem de tipo:
+		strict
+			Marca todas opções de checagem de tipo como verdadeiras. Ideal caso seja a intenção do usuário ter o código mais consistente possível
+		
+		noImplicitAny
+			Levanta erro caso variáveis não estejam tipadas. Caso essa seja a intenção, um "any" tem que ser explicitamente tipado
+
+		strictNullChecks
+			Pode levantar erro caso uma variável em uso seja potencialmente nula.
+			Ex: um botão que foi buscado usando um getElementById que não necessariamente vai encontrar um elemento é usado para escutar um evento.
+
+		
+	- Outras opções
+		noUnusedLocals
+			Levanta erro sempre que uma variável local não está sendo utilizada, como um let dentro de uma função
+
+		nuUnusedParameters
+			Mesmo caso de noUnusedLocals, mas para parâmetros de função
+	
+		noImplicitReturns
+			Levanta um erro caso uma função tenha caminhos que retornam valor e outros que não retornam
+	
+
+	- Existem outras regras e explicações mais elaboradas na documentação oficial (https://www.typescriptlang.org/tsconfig)
+
+
+
+
+- Testar algum dos arquivos de outras pastas
+	-> Copie e cole o conteúdo para o arquivo src/app.ts ou altere o caminho do atributo src da tag script no index.html
+		ex : src=dist/app.js -> src=dist/exemplos/any.js
+
+	-> Rode tsc ou npm watch para compilar elas para o arquivo dist/app.js
+
+	-> Caso queira fazer um teste interagindo com o DOM, altere o index.html
+
+	-> Rode o npm start e acesse o localhost:3000 Caso queira fazer testes usando html é só alterar o index.html.
