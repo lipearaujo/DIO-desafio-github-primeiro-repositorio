@@ -7,6 +7,10 @@
 -TypeScript:
 	npm install -g typescript
 
+-lite-server
+	npm install lite-server
+
+-Rodar tsc --init para iniciar o Typescript
 
 										---> O que é Typescript
 
@@ -152,10 +156,10 @@ interface CarProperties {
 										---> package.json
 
 - Nesse arquivo foram colocados alguns scripts com o propósito de facilitar a vida de quem usar esse repositório
-	start
+	start: "lite-server"
 		Inicia o lite-server, que vai escutar modificações no index.html e em seus arquivos importados. É útil caso queira fazer testes no browser. A porta disposta normalmente é a localhost:3000
 
-	watch
+	watch: "tsc --watch"
 		Roda o tsc --watch com o propósito de compilar constantemente qualquer coisa que for editada nos arquivos TS para sua contraparte em JS. Esse comando evita que tsc tenha que ser digitado constantemente para fazer a compilação.
 
 
