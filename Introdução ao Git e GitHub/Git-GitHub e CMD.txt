@@ -61,6 +61,11 @@ Comandos Básicos no GIT:
 
 	 
 	Passos para salvar Projetos no GitHub:
+		Git remote
+		 - linkar seu projeto com o seu repositório no github: git remote add origin https:/...
+		 - Atualizar o git remote: git remote set-url origin git://repository.url
+		 - Remover git remote existente ori: git remote remove origin
+
 		Git add:
 	 	 - Este comando adiciona os arquivos solicitados ao ambiente de stage, é uma forma de dizer para o git que você deseja que as modificações daquele arquivo sejam gravadas na próxima remessa. Um exemplo de utilização é: git add . onde o ponto representa todos os arquivos na pasta.
 

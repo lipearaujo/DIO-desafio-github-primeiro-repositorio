@@ -92,45 +92,43 @@ const Carlos: Pessoa = {
 
 Desafio 3
  O código abaixo tem alguns erros e não funciona como deveria. Você pode identificar quais são e corrigi-los em um arquivo TS?
-*/
+
 let botaoAtualizar = document.getElementById('atualizar-saldo');
 let botaoLimpar = document.getElementById('limpar-saldo');
-let soma = document.getElementById('soma');
+let soma = document.getElementById('soma') as HTMLInputElement;
 let campoSaldo = document.getElementById('campo-saldo');
-let result;
+let result: number;
 result = 0;
-if (campoSaldo) {
+
+if(campoSaldo){
     campoSaldo.innerHTML = '0';
-}
-;
-function somarAoSaldo(num) {
-    if (campoSaldo) {
+};
+
+function somarAoSaldo(num: number) {
+    if(campoSaldo){
         result += num;
         campoSaldo.innerHTML = result.toString();
-    }
-    ;
-}
-;
+    };
+};
+
 function limparSaldo() {
     result = 0;
-    if (campoSaldo) {
+    if(campoSaldo){
         campoSaldo.innerHTML = '';
-    }
-    ;
-}
-;
-if (botaoAtualizar) {
+    };
+};
+
+if(botaoAtualizar){
     botaoAtualizar.addEventListener('click', function () {
-        if (soma) {
+        if(soma){
             console.log(somarAoSaldo(Number(soma.value)));
-        }
-        ;
+        };
     });
-}
-;
-if (botaoLimpar) {
+};
+
+if(botaoLimpar){
     botaoLimpar.addEventListener('click', function () {
         limparSaldo();
     });
-}
-;
+};
+*/

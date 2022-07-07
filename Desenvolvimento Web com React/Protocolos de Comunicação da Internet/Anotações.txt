@@ -1,0 +1,7 @@
+Protocolo HTTP (HyperText Transfer Protocol)
+	- É um protocolo de comunicação que irá determinar como que os lados irão se comunicar. Fará o intermédio entre cliente/servidor.
+	- O browser implementa o cliente HTTP
+	- O servidor vai hospedar os objetos web. Recursos que o cliente estará solicitando.
+
+	- Cliente é responsável por enviar as mensagens de request. Solicitar recursos que precisa consumir. 
+	- Servidor responde copm uma mensagem do tipo response HTTP utilizando o protocolo TCP/IP da camada de transporte.
