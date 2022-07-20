@@ -1,0 +1,72 @@
+Node.js
+- O NodeJs é um ambiente de execução do JavaScript em server-side. Ele nos dá a possibilidade de rodar localmente o JavaScript fora do navegador por exemplo.
+
+- Temos a possibilidade de rodar o JavaScript sem precisar de um navegador, diminuindo o processamento e trabalhando com interpretação just-in-time
+
+- O nodejs, diferente de outros interpretadores, trabalha com single-thread, ou seja, imagina que cada requisição é um pedido de delivery... vai chegar uma hora que o quadro de pedidos vai estar cheio e se tiver um pedido que ainda não foi produzido e entregue, ele vai bloquear a passagem dos outros pedidos, gerando insatisfação dos clientes. Coitado do entregador.
+O nodejs trabalha com requisições assíncronas, ou seja, não precisa esperar todos os pedidos, vai entregando o que for ficando pronto. Assim todo mundo sai feliz.😊 Assim, o processamento é não-bloqueante(non-blocking), pois funciona mesmo sem uma requisição estar pronta, do contrário seria bloqueante(blocking) e tudo ficaria parado.
+Consequentemente, o entregador não precisa mais ficar preocupado e entrega o pedido assim que o mesmo for finalizado, depois volta no quadro de pedidos, pega os que faltaram e entrega logo após. Chamamos isso de Event-Loop.
+
+- O Node trabalha com single-thred
+	single-thred: cria uma pilha com as funções chamadas e executa uma por vez, mesmo que elas sejam concorrentes
+	multi-thred: executa as funções paralelamente, independentes se estas são concorrentes
+
+- As requisições no Node são assíncronas
+
+- Blocking: síncrono, pois a entrega depende que todas as requisições estejam prontas 
+- Non-blocking: assíncrono, pois a entrega é feita mesmo sem todas as requisições estarem prontas (trabalha com o Event-loop)
+- Event-loop: execução das requisições de forma assíncrona
+
+NPM
+- Ferramenta de gerenciamento de pacotes do Node
+
+Criando packaje.json
+- npm init
+
+Dependencias:
+	- Instalando nodemon: 
+	yarn add nodemon
+	editar "scripts" em packaje.json e adicionar "start": "nodemon index.js" (caso o index não esteja na pasta raiz, passar o caminho do diretório)
+
+	- Instalando express:
+	yarn add express
+	editar em packaje.json e adicionar "type": "module"
+
+Configurando typescript:
+	- Instalando typescript como dependecia de desenvolvimento
+	yarn add -D typescript
+
+	Compilar o arquivo ts: yarn tsc nomeDoArquivo.ts
+	após compilar o arquivo ts, gerará um arquivo com o mesmo nome porem com a extensao js. Esse arquivo que rodaremos com: node nomeDoArquivo.js
+	
+	Ferramenta para facilitar a compilação: yarn add -D ts-node-dev
+	editar "scripts" em packaje.json e adicionar "dev": "ts-node-dev src/index.ts"
+
+	Instalar as tipagens do express para usar com typescript
+	yarn add -D @types/express 
+
+Instalando e configurando jest:
+	yarn add -D jest
+	yarn add -D @types/jest
+	yarn add -D ts-jest
+
+	inicializando o jest na aplicação: npx jest --init
+
+	ir ate o arquivo jest.config.ts e descomentar as linhas de testMatch
+	ir ate o arquivo jest.config.ts, descomentar as linhas de preset e modificar: preset: 'ts-jest'
+
+Extensões vsCode:
+	Thunder client
+	Jest runner
+
+
+Para a build do nosso projeto:
+	editar "scripts" em packaje.json e adicionar "build": "rm -rf ./build && tsc"
+	editar "scripts" em packaje.json e modificar "start": "node build/index.js"
+	editar "type" em packaje.json e modificar "type": "commonjs"
+	editar e descomentar em tsconfig.json "outdir": "./build"
+	adicionar em tsconfig.json as pastas que queremos ou não enviar para o projeto final
+		"include":[] - pastas dentro das chaves serão enviadas
+		"exclude":[] - pastas dentro das chaves não serão enviadas
+
+	Ao final executar yarn build e yarn start
