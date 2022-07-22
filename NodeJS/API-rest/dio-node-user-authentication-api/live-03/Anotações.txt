@@ -1,0 +1,1 @@
+- Adição da autenticação basic para gerar jwt de login

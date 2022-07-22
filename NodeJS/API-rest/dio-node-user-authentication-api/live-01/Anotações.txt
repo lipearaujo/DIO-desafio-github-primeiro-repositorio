@@ -1,0 +1,2 @@
+- Projeto inicial com typescript
+- Adição dos end-points responsáveis pelo CRUD de Usuários e Status da nossa aplicação
