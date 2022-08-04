@@ -1,0 +1,32 @@
+Inicializar o node na aplicação: npm init --y
+
+Instalando dependencias:
+    Instalar typescript: npm i typescript -D
+    Inicializar o typescript na aplicação: npx tsc --init
+    Ler aplicação rodando com typescript: npm i ts-node-dev -D
+    Instalando express: npm i express
+    Instalando tipagem do express: npm i @types/express -D
+    Instalando typeorm: npm i typeorm reflect-metadata
+    Instalando sqlite: npm i sqlite 
+
+Configurações arquivo tsconfig.json:
+    modificar "target" para: "target": "es6"
+    descomentar "strict" e mudar para: "strict": false
+
+Configurações package.json:
+    modificar em "scripts" e adicionar: "dev": "ts -node-dev index.ts"
+    modificar em "scripts" e adicionar: "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
+
+Configurações typeorm:
+    criar pasta database em src
+    criar arquivo ormconfig.json e adicionar o sequinte:
+        {
+            "type": "sqlite",
+            "database": "./src/database/database.sqlite",
+            "migrations": ["./src/database/migrations/*.ts"],
+            "cli": {
+                "migrationsDir": "./src/database/migrations/"
+            }
+        }
+    
+    criando tabela usuarios: npx typeorm migration:create -n CriarUsuarios
