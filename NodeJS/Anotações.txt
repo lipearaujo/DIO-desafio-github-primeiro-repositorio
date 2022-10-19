@@ -118,7 +118,59 @@ Esse tipo de protocolo tem requisitos específicos, como o sistema de mensageria
 Em comparação, a arquitetura REST é composta de um conjunto de diretrizes que podem ser implementadas conforme necessário. Isso faz com que as APIs REST sejam mais rápidas, leves e escaláveis, o que é ideal para a Internet das Coisas (IoT) e o desenvolvimento de aplicativos mobile.
 
 
+/* O aplicativo inicia um servidor e escuta a porta 5000 por conexões. 
+O aplicativo responde com “Hello World!” à solicitações para a URL raiz (/) ou rota. 
+Para todos os outros caminhos, ele irá responder com um 404 Não Encontrado. */
 
+const express = require("express");
+const app = express();
+const port = 5000;
+
+app.use(express.json());
+
+app.get("/", (req, res) => {
+  res.send("Hello World");
+});
+
+app.listen(port, () => {
+  console.log(`Connected on port ${port}`);
+});
+
+/* O req (solicitação) e res (resposta) são os mesmos objetos que o Node fornece, para que seja possível chamar o req.pipe(), req.on('data', callback), e 
+qualquer outra coisa que desejaria fazer sem o envolvimento do Express. */
+
+/* O Roteamento refere-se à determinação de como um aplicativo responde a uma solicitação do cliente por um endpoint específico, 
+que é uma URI (ou caminho) e um método de solicitação HTTP específico (GET, POST, e assim por diante).
+Cada rota pode ter uma ou mais funções de manipulação, que são executadas quando a rota é correspondida.
+A definição de rotas aceita a seguinte estrutura: 
+app.METHOD(PATH, HANDLER) Onde:
+    app é uma instância do express.
+    METHOD é um método de solicitação HTTP.
+    PATH é um caminho no servidor.
+    HANDLER é a função executada quando a rota é correspondida.
+
+Os seguintes exemplos ilustram a definição de rotas simples.
+Responder com Hello World! na página inicial:
+app.get('/', function (req, res) {
+  res.send('Hello World!');
+});
+
+Responder a uma solicitação POST na rota raiz (/) com a página inicial do aplicativo:
+app.post('/', function (req, res) {
+  res.send('Got a POST request');
+});
+
+Responder a uma solicitação PUT para a rota /user:
+app.put('/user', function (req, res) {
+  res.send('Got a PUT request at /user');
+});
+
+Responder a uma solicitação DELETE para a rota /user:
+app.delete('/user', function (req, res) {
+  res.send('Got a DELETE request at /user');
+});
+
+*/
 
 
 

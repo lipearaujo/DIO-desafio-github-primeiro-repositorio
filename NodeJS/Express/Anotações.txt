@@ -1,0 +1,45 @@
+Express é o framework Node mais popular e a biblioteca subjacente para uma série de outros frameworks do Node.
+O Express oferece soluções para:
+	Gerenciar requisições de diferentes verbos HTTP em diferentes URLs.
+	Integrar "view engines" para inserir dados nos templates.
+	Definir as configurações comuns da aplicação web, como a porta a ser usada para conexão e a localização dos modelos que são usados para renderizar a resposta.
+	Adicionar novos processos de requisição por meio de "middleware" em qualquer ponto da "fila" de requisições.
+
+Em um site tradicional baseado em dados, um aplicativo da Web aguarda pedidos HTTP do navegador da web (ou outro cliente). 
+Quando um pedido é recebido, o aplicativo descreve quais ações são necessárias com base no padrão de URL e possivelmente informações associadas contidas em dados POST ou GET. 
+Dependendo do que é necessário, pode-se ler ou escrever informações em um banco de dados ou executar outras tarefas necessárias para satisfazer a solicitação. 
+O aplicativo retornará uma resposta ao navegador da Web, criando, de forma dinâmica, uma página HTML para o navegador, exibindo e inserindo os dados recuperados em espaços reservados em um modelo HTML.
+Express fornece métodos para especificar qual função é chamada quando chega requisição HTTP (GET, POST, SET, etc.) e de rotas e métodos para especificar o mecanismo de modelo ("view") usado, onde o modelo arquivos estão localizados e qual modelo usar para renderizar uma resposta. 
+Você pode usar o middleware Express para adicionar suporte para cookies, sessões e usuários, obtendo parâmetros POST / GET, etc. 
+Você pode usar qualquer mecanismo de banco de dados suportado por Node (o Express não define nenhum comportamento relacionado a banco de dados).
+
+Um módulo é uma biblioteca/arquivo de JavaScript que você pode importar para outro código usando a função require() do Node.
+Para tornar os objetos disponíveis fora do módulo, você precisa apenas atribuí-los ao objeto exports.
+
+
+Ex:
+// As duas primeiras linhas require() importam o módulo Express e criam uma aplicação Express. 
+//Esse objeto (tradicionalmente nomeado de app), tem métodos de roteamento de requisições HTTP, configurações de middleware, renderização de views HTML, registro de engines de templates e modificação das configurações que controlam como o aplicativo se comporta (por exemplo, o modo de ambiente, se as definições de rota são sensíveis a maiúsculas e minúsculas, etc).
+var express = require('express'); 
+var app = express(); 		  
+
+app.get('/', function(req, res) {  //A parte do meio do código (as três linhas que começam com app.get) mostra uma definição de rota. 
+  res.send('Olá Mundo!');	   //O método app.get() especifica uma função de retorno de chamada que será invocada sempre que exista uma solicitação HTTP GET com um caminho ('/') relativo à raiz do site. 
+				   //A função de retorno de chamada requer uma solicitação e um objeto de resposta como argumentos, e simplesmente chama send() na resposta para retornar a string "Olá Mundo!" 
+});
+
+//O bloco final inicia o servidor na porta '3000' e imprime um comentário de log no console. 
+//Com o servidor em execução, você pode acessar o localhost:3000 em seu navegador para ver o exemplo de resposta retornado.
+app.listen(3000, function() {
+  console.log('App de Exemplo escutando na porta 3000!');  	
+});
+
+
+documentacao: https://developer.mozilla.org/pt-BR/docs/Learn/Server-side/Express_Nodejs/Introduction
+	      https://expressjs.com/
+
+
+
+
+
+
